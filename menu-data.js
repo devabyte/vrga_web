@@ -1,8 +1,7 @@
 /* ==========================================================================
    MENU
    This is the only file you need to edit to change food and drink items or
-   prices. Both the Menu page and the "Food & drinks" section on the home page
-   are built from this list.
+   prices. The Menu page is built from this list.
 
    TO CHANGE A PRICE     Edit the number.
    TO ADD AN ITEM        Copy a line like  { name: "Maggi", price: 60 },  and edit it.
@@ -13,10 +12,6 @@
    COMBOS   Each combo has a name and a list of options with prices.
             Add an optional line under a combo's name to say what is inside:
                 includes: "Maggi and a cold drink",
-
-   ON THE HOME PAGE      The first 3 items of each category are shown there
-                         (combos are shown as "from" their lowest price), so put
-                         your best sellers at the top of each list.
 
    Keep the quotes " " around names and the comma at the end of every line.
    ========================================================================== */
