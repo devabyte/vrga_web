@@ -231,9 +231,9 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
   isolation: isolate;
   display: flex;
   align-items: flex-end;
-  min-height: 88vh;
-  min-height: 88svh;
-  padding-block: 5rem clamp(2.5rem, 7vw, 5rem);
+  min-height: 60vh;
+  min-height: 60svh;
+  padding-block: 4rem clamp(2rem, 5vw, 3.5rem);
   overflow: hidden;
   background: var(--teal);
 }
@@ -289,12 +289,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
   line-height: 1;
   letter-spacing: -0.03em;
 }
-.hero h1 span { display: block; }
-/* each line steps in a little further, like climbing levels */
-@media (min-width: 700px) {
-  .hero h1 span:nth-child(2) { padding-left: 0.5em; }
-  .hero h1 span:nth-child(3) { padding-left: 1em; }
-}
+.hero h1 span { display: inline-block; }
 
 .hero-lead {
   max-width: 30em;
