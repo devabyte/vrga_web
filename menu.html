@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu | VR Gaming Adda</title>
+  <meta name="description" content="Snacks, drinks and combo deals at VR Gaming Adda, Ghaziabad. See the full menu with prices.">
+  <meta name="theme-color" content="#0a171d">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Menu | VR Gaming Adda">
+  <meta property="og:description" content="Snacks, drinks and combo deals at VR Gaming Adda in Ghaziabad.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎮%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">VR Gaming Adda</a>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <a href="index.html#home">Home</a>
+        <a href="games.html">Games</a>
+        <a href="menu.html" aria-current="page">Menu</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="tel:+917838750992">Call now</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <div class="container page-head">
+      <a class="back-link" href="index.html">Back to home</a>
+      <h1>Menu</h1>
+      <p class="page-lead">Snacks, drinks and combos to keep you going between matches.</p>
+      <nav aria-label="Menu categories">
+        <ul class="menu-jump" id="menu-jump" role="list"></ul>
+      </nav>
+    </div>
+
+    <!-- The menu is drawn here by menu.js. Edit items and prices at the top of that file. -->
+    <div class="container menu-root" id="menu-root">
+      <noscript>
+        <p class="menu-noscript">The menu needs JavaScript to show. Please call <a href="tel:+917838750992">+91 78387 50992</a> to ask about items and prices.</p>
+      </noscript>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> VR Gaming Adda</p>
+      <ul class="footer-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">All games</a></li>
+        <li><a href="tel:+917838750992">Call</a></li>
+        <li><a href="https://instagram.com/vrgamingadda" target="_blank" rel="noopener noreferrer">Instagram<span class="sr-only"> (opens in a new tab)</span></a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>
