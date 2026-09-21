@@ -329,6 +329,8 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 
 .section { padding-block: clamp(3.5rem, 8vw, 6rem); }
 .section--tight { padding-top: 1rem; }
+/* tighter spacing above and below the home page sections */
+.section--compact { padding-block: clamp(1.75rem, 4vw, 2.75rem); }
 /* the section right after the hero needs less space above it */
 .hero + .section { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
 
