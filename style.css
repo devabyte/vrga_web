@@ -302,12 +302,13 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 .hero h1 span { display: inline-block; }
 
 .hero-lead {
-  max-width: 30em;
+  max-width: 36em;
   margin: 1.5rem 0 2rem;
   font-size: clamp(1.1rem, 2.5vw, 1.35rem);
   color: var(--mist);
 }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+.hero-actions .text-link { padding: 0.6rem 0.5rem; }
 
 /* One orchestrated page-load moment: the title, then the details. */
 @keyframes rise {
@@ -661,6 +662,26 @@ a.pager-num:hover { border-color: var(--mist); background: rgba(232, 239, 243, 0
 .combo h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
 .combo-includes { margin: 0.25rem 0 0; color: var(--slate); font-size: 0.95rem; }
 .combo .menu-item { padding: 0.5rem 0; }
+
+/* short menu preview on the home page */
+.menu-preview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem 2.5rem;
+}
+@media (min-width: 560px) {
+  .menu-preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1200px) {
+  .menu-preview { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.menu-preview-col { padding-top: 0.9rem; border-top: 2px solid var(--screen); }
+.menu-preview-col h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
+.menu-preview-col h3 a { color: inherit; text-decoration: none; }
+.menu-preview-col h3 a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.menu-preview-col .menu-item { gap: 0.75rem; padding: 0.5rem 0; }
+.menu-preview-col .menu-item dt { gap: 0.5rem; }
+.menu-preview-col .menu-item dt::after { min-width: 0.75rem; }
 
 /* ---------- Footer ---------- */
 

@@ -1,96 +1,12 @@
+/* Builds the Menu page and the "Food & drinks" preview on the home page
+   from menu-data.js. You should not need to edit this file. */
 (() => {
   'use strict';
 
-  /* ==========================================================================
-     EDIT THE MENU HERE
-     - Change a price: edit the number.
-     - Add an item: copy a line like { name: 'Maggi', price: 60 } and edit it.
-     - Add a category: copy a whole { id, title, items } block.
-     - Combos: each combo has a name and a list of options. Add an optional
-       line  includes: 'what is in the combo'  under a combo's name to show it.
-     ========================================================================== */
-  const MENU = [
-    {
-      id: 'snacks',
-      title: 'Snacks',
-      items: [
-        { name: 'Maggi', price: 60 },
-        { name: 'Popcorn', price: 50 },
-        { name: 'Fries', price: 100 },
-        { name: 'Sandwich', price: 100 },
-        { name: 'Munchies', price: 50 },
-      ],
-    },
-    {
-      id: 'hot-drinks',
-      title: 'Hot drinks',
-      items: [
-        { name: 'Tea', price: 25 },
-        { name: 'Coffee', price: 40 },
-      ],
-    },
-    {
-      id: 'cold-drinks',
-      title: 'Cold drinks',
-      items: [
-        { name: 'Cold Coffee', price: 80 },
-        { name: 'Cold Drink 750 ml', price: 40 },
-        { name: 'Monster', price: 125 },
-        { name: 'Water', price: 10 },
-      ],
-    },
-    {
-      id: 'combos',
-      title: 'Combos',
-      combos: [
-        {
-          name: 'Mini Mission',
-          options: [
-            { name: 'Thumbs Up 250 ml', price: 120 },
-            { name: 'Plus: Thumbs Up 750 ml', price: 140 },
-            { name: 'Cold Coffee', price: 160 },
-          ],
-        },
-        {
-          name: 'Gamer Fuel',
-          options: [
-            { name: 'Thumbs Up 250 ml', price: 160 },
-            { name: 'Plus: Thumbs Up 250 ml', price: 180 },
-            { name: 'Cold Coffee', price: 200 },
-          ],
-        },
-        {
-          name: 'MVP Bundle',
-          options: [
-            { name: 'Thumbs Up 750 ml', price: 200 },
-            { name: 'Plus: Thumbs Up 250 ml', price: 220 },
-            { name: 'Cold Coffee', price: 240 },
-          ],
-        },
-        {
-          name: 'Power Duo Pack',
-          options: [
-            { name: 'Thumbs Up 750 ml', price: 200 },
-            { name: 'Cold Coffee', price: 280 },
-          ],
-        },
-        {
-          name: 'Squad Snack Pack',
-          options: [
-            { name: 'Thumbs Up 1 l', price: 300 },
-            { name: 'Cold Coffee', price: 460 },
-          ],
-        },
-      ],
-    },
-  ];
-
-  /* ==========================================================================
-     Rendering (no need to edit below this line)
-     ========================================================================== */
-  const root = document.getElementById('menu-root');
-  const jump = document.getElementById('menu-jump');
-  if (!root) return;
+  const root = document.getElementById('menu-root');       // Menu page
+  const jump = document.getElementById('menu-jump');       // category links on the Menu page
+  const preview = document.getElementById('menu-preview'); // home page preview
+  if (!root && !preview) return;
 
   const el = (tag, className, text) => {
     const node = document.createElement(tag);
@@ -99,52 +15,98 @@
     return node;
   };
 
+  /* ---------- If the data file is broken, say so (and tell the owner in the console) ---------- */
+  if (typeof MENU === 'undefined') {
+    console.error('menu-data.js did not load. Check that the file exists and that every line in it has its quotes and commas.');
+    [root, preview].filter(Boolean).forEach((target) => {
+      target.replaceChildren(el('p', 'noscript-note', "Sorry, the menu couldn't load right now. Please call us to ask about items and prices."));
+    });
+    return;
+  }
+
   const rupees = (amount) => '\u20B9' + amount;
 
+  // rows look like { name: 'Maggi', price: 60 }; a price can also be ready-made text like 'from ₹120'
   const priceList = (rows) => {
     const dl = el('dl', 'menu-list');
     rows.forEach((row) => {
+      const shown = typeof row.price === 'number' ? rupees(row.price) : row.price;
       const item = el('div', 'menu-item');
-      item.append(el('dt', null, row.name), el('dd', null, rupees(row.price)));
+      item.append(el('dt', null, row.name), el('dd', null, shown));
       dl.append(item);
     });
     return dl;
   };
 
-  MENU.forEach((category) => {
-    const section = el('section', 'menu-section');
-    section.id = category.id;
-    section.setAttribute('aria-labelledby', category.id + '-title');
+  /* ---------- Menu page: every category in full ---------- */
+  if (root) {
+    MENU.forEach((category) => {
+      const section = el('section', 'menu-section');
+      section.id = category.id;
+      section.setAttribute('aria-labelledby', category.id + '-title');
 
-    const title = el('h2', 'menu-title', category.title);
-    title.id = category.id + '-title';
+      const title = el('h2', 'menu-title', category.title);
+      title.id = category.id + '-title';
 
-    const body = el('div', 'menu-body');
+      const body = el('div', 'menu-body');
 
-    if (category.items) body.append(priceList(category.items));
+      if (category.items) body.append(priceList(category.items));
 
-    if (category.combos) {
-      const grid = el('div', 'combo-grid');
-      category.combos.forEach((combo) => {
-        const box = el('div', 'combo');
-        box.append(el('h3', null, combo.name));
-        if (combo.includes) box.append(el('p', 'combo-includes', combo.includes));
-        box.append(priceList(combo.options));
-        grid.append(box);
-      });
-      body.append(grid);
-    }
+      if (category.combos) {
+        const grid = el('div', 'combo-grid');
+        category.combos.forEach((combo) => {
+          const box = el('div', 'combo');
+          box.append(el('h3', null, combo.name));
+          if (combo.includes) box.append(el('p', 'combo-includes', combo.includes));
+          box.append(priceList(combo.options));
+          grid.append(box);
+        });
+        body.append(grid);
+      }
 
-    section.append(title, body);
-    root.append(section);
+      section.append(title, body);
+      root.append(section);
 
-    // jump link at the top of the page
-    if (jump) {
-      const li = el('li');
+      // jump link at the top of the page
+      if (jump) {
+        const li = el('li');
+        const link = el('a', null, category.title);
+        link.href = '#' + category.id;
+        li.append(link);
+        jump.append(li);
+      }
+    });
+  }
+
+  /* ---------- Home page: a short taste of each category ---------- */
+  if (preview) {
+    const PREVIEW_ITEMS = 3; // how many rows to show per category
+
+    MENU.forEach((category) => {
+      let rows = [];
+
+      if (category.items) {
+        rows = category.items.slice(0, PREVIEW_ITEMS);
+      } else if (category.combos) {
+        // combos are shown as "from" their cheapest option
+        rows = category.combos
+          .filter((combo) => combo.options && combo.options.length)
+          .slice(0, PREVIEW_ITEMS)
+          .map((combo) => ({
+            name: combo.name,
+            price: 'from ' + rupees(Math.min(...combo.options.map((option) => option.price))),
+          }));
+      }
+      if (rows.length === 0) return;
+
+      const heading = el('h3');
       const link = el('a', null, category.title);
-      link.href = '#' + category.id;
-      li.append(link);
-      jump.append(li);
-    }
-  });
+      link.href = 'menu.html#' + category.id;
+      heading.append(link);
+
+      const column = el('div', 'menu-preview-col');
+      column.append(heading, priceList(rows));
+      preview.append(column);
+    });
+  }
 })();
