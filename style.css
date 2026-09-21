@@ -233,7 +233,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
   align-items: flex-end;
   min-height: 60vh;
   min-height: 60svh;
-  padding-block: 4rem clamp(2rem, 5vw, 3.5rem);
+  padding-block: 4rem clamp(1.5rem, 3vw, 2.25rem);
   overflow: hidden;
   background: var(--teal);
 }
@@ -318,6 +318,8 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 
 .section { padding-block: clamp(3.5rem, 8vw, 6rem); }
 .section--tight { padding-top: 1rem; }
+/* the section right after the hero needs less space above it */
+.hero + .section { padding-top: clamp(1.5rem, 3vw, 2.5rem); }
 
 .section-head {
   display: flex;
