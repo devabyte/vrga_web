@@ -56,5 +56,6 @@ const GAME_CATALOG = {
     { name: "Tekken 7",                        image: "tekken 7.jpeg" },
     { name: "God of War (2018)",               image: "gow 4.jpeg" },
     { name: "God of War III",                  image: "gow3.jpeg" },
+    { name: "Black Myth wukong",               image: "black_myth_wukong.jpg" },
   ],
 };
