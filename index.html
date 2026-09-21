@@ -97,44 +97,9 @@
           <a class="text-link" href="games.html">View all games</a>
         </div>
 
-        <ul class="tile-grid" role="list">
-          <li>
-            <article class="tile reveal">
-              <img src="img/spiderman%20miles%20morales.jpeg" alt="" loading="lazy" decoding="async">
-              <h3 class="tile-title">Spider-Man: Miles Morales</h3>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/gow%20rag.jpeg" alt="" loading="lazy" decoding="async">
-              <h3 class="tile-title">God of War Ragnarök</h3>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/fc25.jpeg" alt="" loading="lazy" decoding="async">
-              <h3 class="tile-title">EA Sports FC 25</h3>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/tekken%208.jpeg" alt="" loading="lazy" decoding="async">
-              <h3 class="tile-title">Tekken 8</h3>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/horizon%20west.jpeg" alt="" loading="lazy" decoding="async">
-              <h3 class="tile-title">Horizon Forbidden West</h3>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/resident%20evil%204.jpeg" alt="" loading="lazy" decoding="async">
-              <h3 class="tile-title">Resident Evil 4</h3>
-            </article>
-          </li>
-        </ul>
+        <!-- Filled in by games.js from games-data.js -->
+        <ul class="tile-grid" id="featured-games" role="list"></ul>
+        <noscript><p class="noscript-note">Turn on JavaScript to see the games, or <a href="games.html">open the full list</a>.</p></noscript>
       </div>
     </section>
 
@@ -222,6 +187,8 @@
     </div>
   </footer>
 
+  <script src="games-data.js"></script>
+  <script src="games.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

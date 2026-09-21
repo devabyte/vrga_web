@@ -52,122 +52,11 @@
 
     <section class="section section--tight" aria-label="Game list">
       <div class="container">
-        <ul class="tile-grid tile-grid--library" role="list">
-          <li>
-            <article class="tile reveal">
-              <img src="img/lego.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Lego 2K Drive</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/gran.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Gran Turismo 7</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/nfs.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Need for Speed Heat</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/assasin.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Assassin's Creed Mirage</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/callofdutymw2.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Call of Duty: Modern Warfare II</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/gta5.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Grand Theft Auto V</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/ghost.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Ghost of Tsushima</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/mortal%20kombat%201.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Mortal Kombat 1</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/cyberpunk.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Cyberpunk 2077</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/red%20dead%202.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Red Dead Redemption 2</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/residen%20evil%202.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Resident Evil 2</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/tekken%207.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Tekken 7</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/gow%204.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">God of War (2018)</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/gow3.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">God of War III</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/resident%20evil%204.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Resident Evil 4</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/horizon%20west.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Horizon Forbidden West</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/tekken%208.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">Tekken 8</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile reveal">
-              <img src="img/fc25.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">EA Sports FC 25</h2>
-            </article>
-          </li>
-          <li>
-            <article class="tile tile--more reveal">
-              <img src="img/manymore.jpeg" alt="" loading="lazy" decoding="async">
-              <h2 class="tile-title">And many more</h2>
-            </article>
-          </li>
-        </ul>
+        <!-- Filled in by games.js from games-data.js, ten games per page -->
+        <ul class="tile-grid tile-grid--library" id="game-list" role="list" tabindex="-1"></ul>
+        <noscript><p class="noscript-note">Turn on JavaScript to see the game list, or call us to ask what's on the shelf.</p></noscript>
+        <nav class="pager" id="pager" aria-label="Game pages"></nav>
+        <p class="pager-status" id="pager-status" aria-live="polite"></p>
       </div>
     </section>
 
@@ -198,6 +87,8 @@
     </div>
   </footer>
 
+  <script src="games-data.js"></script>
+  <script src="games.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
